@@ -41,7 +41,7 @@ public function add(){
 public function view(){
 	$data['package_setup']=$this->package_setup_model->get_package();
 	$data['titlename']=$this->admin_model->get_logged_user();
-	$this->display('admin/view',$data);
+	$this->display('view',$data);
 }
 
 public function edit(){
