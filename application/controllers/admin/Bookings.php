@@ -23,5 +23,18 @@ class Bookings extends Admin_controller {
 		$this->display('bookings',$data);
 	}
 
+	public function book_status(){
+		$booking_id=$this->uri->segment(4);
+		$booking_status=$this->uri->segment(5);
+
+
+	if(empty($booking_id)){
+        show_404();
+    }
+    $this->admin_model->set_booking_status($booking_id,$booking_status);
+    redirect('admin/bookings');
+
+	}
+
 
 }

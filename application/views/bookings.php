@@ -37,7 +37,7 @@
                             </div>
                             <select class="form-control" type="text" name="book_status" id="book_status">
                                 <option value="confirmed">Confirmed</option>
-                                <option value="pending">Pending</option>
+                                <option value="pending">On Hold</option>
                                 <option value="pending">Cancelled</option>
                             </select>
                         </div>
@@ -47,7 +47,53 @@
                 		<tr><th>Client Name</th><th>Package Name</th><th>Client Number</th><th>Client Email</th><th>Requirements</th><th>Status</th></tr>
                 		<?php foreach($package_book as $key=>$pb): ?>
                 		<tr><td><?php echo $pb['name']; ?></td><td><?php echo $pb['package_name']; ?></td><td><?php echo $pb['phone']; ?></td><td><?php echo $pb['email']; ?></td><td><?php echo $pb['requirements']; ?></td><td>
-                      <button class="btn btn-success btn-xs">Confirm</button>&nbsp;<button class="btn btn-warning btn-xs">On Hold</button>&nbsp;<button class="btn btn-danger btn-xs">Cancel</button>      
+                      <a href="<?php echo base_url('admin/bookings/book_status/'.$pb['booking_id'].'/confirmed'); ?>" class="book_confirm btn btn-success btn-xs 
+
+                          <?php 
+                          if($pb['booking_status']=="confirmed"){
+                            echo "disabled";
+                          }
+                          
+
+                          ?>
+                        " >
+                          <?php 
+                          if($pb['booking_status']=="confirmed"){
+                            echo "Confirmed";
+                          }
+                          else{
+                            echo "Confirm";
+                          }
+
+                          ?>
+
+                      </a>&nbsp;<a href="<?php echo base_url('admin/bookings/book_status/'.$pb['booking_id'].'/on_hold'); ?>" class="book_hold btn btn-warning btn-xs  <?php 
+                          if($pb['booking_status']=="on_hold"){
+                            echo "disabled";
+                          }?>">
+                        <?php 
+                          if($pb['booking_status']=="on_hold"){
+                            echo "On Hold";
+                          }
+                          else{
+                            echo "Hold";
+                          }
+
+                          ?>
+                      </a>&nbsp;<a href="<?php echo base_url('admin/bookings/book_status/'.$pb['booking_id'].'/cancelled'); ?>" class="book_cancel btn btn-danger btn-xs <?php 
+                          if($pb['booking_status']=="cancelled"){
+                            echo "disabled";
+                          }?>">
+                          <?php 
+                          if($pb['booking_status']=="cancelled"){
+                            echo "Cancelled";
+                          }
+                          else{
+                            echo "Cancel";
+                          }
+
+                          ?>
+                      </a>      
                         </td></tr>
                 		<?php endforeach; ?>
                 	</table>
@@ -57,3 +103,4 @@
         </div>
 
  </div>
+

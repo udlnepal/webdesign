@@ -22,5 +22,12 @@ public function get_bookings(){
 
 }
 
-
+public function set_booking_status($booking_id,$booking_status){
+$data=array(
+'booking_status'=>$booking_status,
+);
+$this->db->where('booking_id',$booking_id);
+return $this->db->update('package_book',$data);
+}
+/*write above here */
 }
