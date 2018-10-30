@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2018 at 08:49 AM
--- Server version: 10.1.8-MariaDB
--- PHP Version: 5.5.30
+-- Generation Time: Oct 12, 2018 at 07:18 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,29 +32,27 @@ CREATE TABLE `package_book` (
   `name` varchar(100) NOT NULL,
   `phone` int(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `requirements` varchar(250) NOT NULL,
-  `booking_status` varchar(50) NOT NULL
+  `requirements` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `package_book`
 --
 
-INSERT INTO `package_book` (`booking_id`, `pack_id`, `name`, `phone`, `email`, `requirements`, `booking_status`) VALUES
-(1, 2, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'a', ''),
-(2, 2, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'more specific instructions given', ''),
-(3, 1, 'Ramesh', 78945612, 'timusumit@gmail.com', 'asdfds', ''),
-(4, 1, 'Sumit Maharjan', 111, 'sadf', 'sdfsdaf', ''),
-(5, 0, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'sfda', ''),
-(6, 0, 'sdfsdf', 0, 'sdfasadf', 'sadf', ''),
-(7, 0, 'Sumit Maharjan', 111, 'abc@gmail.com', 'aa', ''),
-(8, 1, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'zczxc', ''),
-(9, 0, 'sadf', 2147483647, 'timusumit@gmail.com', 'sdfsadf', ''),
-(10, 1, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'ssafdsfas', ''),
-(11, 1, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'sfasf', ''),
-(12, 2, 'Ramesh', 2147483647, 'r@rt.com', 'tesst ing', ''),
-(13, 2, 'sdfadf', 0, 'sadfsadf', 'sadfad', ''),
-(14, 2, 'Prerana', 123456, 'thapa@gmail.com', 'test', '');
+INSERT INTO `package_book` (`booking_id`, `pack_id`, `name`, `phone`, `email`, `requirements`) VALUES
+(1, 2, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'a'),
+(2, 2, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'more specific instructions given'),
+(3, 1, 'Ramesh', 78945612, 'timusumit@gmail.com', 'asdfds'),
+(4, 1, 'Sumit Maharjan', 111, 'sadf', 'sdfsdaf'),
+(5, 0, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'sfda'),
+(6, 0, 'sdfsdf', 0, 'sdfasadf', 'sadf'),
+(7, 0, 'Sumit Maharjan', 111, 'abc@gmail.com', 'aa'),
+(8, 1, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'zczxc'),
+(9, 0, 'sadf', 2147483647, 'timusumit@gmail.com', 'sdfsadf'),
+(10, 1, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'ssafdsfas'),
+(11, 1, 'Sumit Maharjan', 2147483647, 'timusumit@gmail.com', 'sfasf'),
+(12, 2, 'Ramesh', 2147483647, 'r@rt.com', 'tesst ing'),
+(13, 2, 'sdfadf', 0, 'sadfsadf', 'sadfad');
 
 -- --------------------------------------------------------
 
@@ -132,7 +130,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `package_book`
 --
 ALTER TABLE `package_book`
-  MODIFY `booking_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `booking_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `package_setup`
 --

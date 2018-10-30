@@ -42,7 +42,7 @@
 				<span class="input-group-text wid130">
 					Phone:
 				</span>
-			   </div>
+			</div>
 				<input class="form-control" type="text" name="phone" id="phone">
 			</div>
 			<div class="input-group mb-3">
