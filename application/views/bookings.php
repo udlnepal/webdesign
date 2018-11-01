@@ -27,7 +27,7 @@
             	<div class="col-lg-12">
             	<div class="card">
                 <div class="card-body">
-                    <div class="col-lg-12 pad_fix">
+                 <!--    <div class="col-lg-12 pad_fix">
                       <div class="col-lg-4 pad_fix">  
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -36,17 +36,21 @@
                                 </span>
                             </div>
                             <select class="form-control" type="text" name="book_status" id="book_status">
-                                <option value="confirmed">Confirmed</option>
-                                <option value="pending">On Hold</option>
-                                <option value="pending">Cancelled</option>
+                               <?php foreach($package_book as $key=>$pb): ?>
+
+                                <option value="<?php echo $pb['booking_status'] ?>"><?php echo ucfirst($pb['booking_status']) ?></option>
+                               
+
+                              <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
-                    </div>
+                    </div> -->
                 	<table class="table table-bordered table-striped">
                 		<tr><th>Client Name</th><th>Package Name</th><th>Client Number</th><th>Client Email</th><th>Requirements</th><th>Status</th></tr>
                 		<?php foreach($package_book as $key=>$pb): ?>
-                		<tr><td><?php echo $pb['name']; ?></td><td><?php echo $pb['package_name']; ?></td><td><?php echo $pb['phone']; ?></td><td><?php echo $pb['email']; ?></td><td><?php echo $pb['requirements']; ?></td><td>
+                		<?php if($pb['booking_status']!="cancelled"){ ?>
+                    <tr><td><?php echo $pb['name']; ?></td><td><?php echo $pb['package_name']; ?></td><td><?php echo $pb['phone']; ?></td><td><?php echo $pb['email']; ?></td><td><?php echo $pb['requirements']; ?></td><td>
                       <a href="<?php echo base_url('admin/bookings/book_status/'.$pb['booking_id'].'/confirmed'); ?>" class="book_confirm btn btn-success btn-xs 
 
                           <?php 
@@ -95,6 +99,7 @@
                           ?>
                       </a>      
                         </td></tr>
+                      <?php }?>
                 		<?php endforeach; ?>
                 	</table>
             	</div>
