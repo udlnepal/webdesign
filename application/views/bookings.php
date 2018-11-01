@@ -50,7 +50,20 @@
                 		<tr><th>Client Name</th><th>Package Name</th><th>Client Number</th><th>Client Email</th><th>Requirements</th><th>Status</th></tr>
                 		<?php foreach($package_book as $key=>$pb): ?>
                 		<?php if($pb['booking_status']!="cancelled"){ ?>
-                    <tr><td><?php echo $pb['name']; ?></td><td><?php echo $pb['package_name']; ?></td><td><?php echo $pb['phone']; ?></td><td><?php echo $pb['email']; ?></td><td><?php echo $pb['requirements']; ?></td><td>
+                    <tr class="
+                      <?php 
+                          switch($pb['booking_status']){
+                          case "confirmed":
+                          echo "bg-success text-white";
+                          break;
+                          case "on_hold":
+                          echo "bg-warning text-white";
+                          break;
+                          default:
+                        }
+                          ?>
+
+                    "><td><?php echo $pb['name']; ?></td><td><?php echo $pb['package_name']; ?></td><td><?php echo $pb['phone']; ?></td><td><?php echo $pb['email']; ?></td><td><?php echo $pb['requirements']; ?></td><td>
                       <a href="<?php echo base_url('admin/bookings/book_status/'.$pb['booking_id'].'/confirmed'); ?>" class="book_confirm btn btn-success btn-xs 
 
                           <?php 
