@@ -24,7 +24,39 @@ class Webmail extends Admin_controller {
       } 
   
       public function send_mail() { 
-         $from_email = "your@example.com"; 
+
+
+$this->load->library('email');
+
+//SMTP & mail configuration
+$config = array(
+    'protocol'  => 'smtp',
+    'smtp_host' => 'xo1.x10hosting.com',
+    'smtp_port' => 465,
+    'smtp_user' => 'udlnepal',
+    'smtp_pass' => '',
+    'mailtype'  => 'html',
+    'charset'   => 'utf-8'
+);
+$this->email->initialize($config);
+$this->email->set_mailtype("html");
+$this->email->set_newline("\r\n");
+
+//Email content
+$htmlContent = '<h1>Sending email via SMTP server</h1>';
+$htmlContent .= '<p>This email has sent via SMTP server from CodeIgniter application.</p>';
+  $to_email = $this->input->post('email'); 
+/*$this->email->to('recipient@example.com');*/
+ $this->email->to($to_email);
+$this->email->from('sender@example.com','MyWebsite');
+$this->email->subject('How to send email via SMTP server in CodeIgniter');
+$this->email->message($htmlContent);
+
+//Send email
+$this->email->send();
+
+
+       /*  $from_email = "your@example.com"; 
          $to_email = $this->input->post('email'); 
    
          //Load email library 
@@ -40,7 +72,7 @@ class Webmail extends Admin_controller {
          $this->session->set_flashdata("email_sent","Email sent successfully."); 
          else 
          $this->session->set_flashdata("email_sent","Error in sending Email."); 
-         $this->load->view('email_form'); 
+         $this->load->view('email_form'); */
       } 
 
 
